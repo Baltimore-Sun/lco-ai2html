@@ -1,9 +1,7 @@
 <script type="text/javascript">
     (function () {
-        // only want one resizer on the page
         if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
         document.documentElement.className += " g-resizer-v3-init";
-        // require IE9+
         if (!("querySelector" in document)) return;
         function resizer() {
             var elements = Array.prototype.slice.call(document.querySelectorAll(".g-artboard[data-min-width]")),
@@ -40,7 +38,6 @@
         window.addEventListener('resize', throttle(resizer, 200));
 
         function throttle(func, wait) {
-            // from underscore.js
             var _now = Date.now || function () { return new Date().getTime(); },
                 context, args, result, timeout = null, previous = 0;
             var later = function () {
